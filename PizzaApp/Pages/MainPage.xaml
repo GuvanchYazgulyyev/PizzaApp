@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PizzaApp.Pages.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#FFA500">
+    <!--Renk Kodları FF8C00  FF8C00  Ana === FFA500-->
+    <Grid RowDefinitions="Auto, *, Auto"
+  Padding="15,25">
+        <Label Grid.Row="0"
+               Text="Pizza Pazarı"
+               FontSize="40"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"/>
+        <Image Grid.Row="1"
+               Source="akdeniz_pizza.png"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+        <VerticalStackLayout Grid.Row="2"
+                             Spacing="15">
+            <Label Text="Dünyanın En Lezzetli Pizzaları Burada..."
+                   FontSize="40"
+                   FontAttributes="Bold"/>
+            <Label Text="Dünyanın En Lezzetli Pizzaları Burada...  Sen de Bu lezzeti kaçırma. Üstelik kampanyayı yakala."
+                   FontSize="18"
+                   LineHeight="1.2"/>
+            <Border StrokeShape="RoundRectangle 25"
+                    StrokeThickness="0"
+                    BackgroundColor="#FFD700"
+                    HeightRequest="50">
+                <!--Farklı Sayfaya girmek için Burayı tetikl HomePage Sayfasına Yönlendirer-->
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                </Border.GestureRecognizers>
+
+
+                <HorizontalStackLayout HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       Spacing="10"
+                                       Padding="0,5">
+                    <Label Text="Tümünü İncele"
+                           VerticalOptions="Center"
+                           FontSize="18"/>
+                    <Image Source="arrow_right"
+                           VerticalOptions="Center"
+                           HeightRequest="30"/>
+                </HorizontalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </Grid>
+
+
+</ContentPage>
