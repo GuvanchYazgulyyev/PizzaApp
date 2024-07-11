@@ -3,12 +3,20 @@
     x:Class="PizzaApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:PizzaApp"
-    Shell.FlyoutBehavior="Disabled">
-
+    xmlns:pages="clr-namespace:PizzaApp.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="OrangeRed">
+<!--
+   Dakika 32:13    
+    -->
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        Title=""
+        ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage" />
+    <!--Menüleri Belirledik-->
+    <ShellContent
+        Title="Ana Sayfa"
+        ContentTemplate="{DataTemplate pages:HomePage}"
+        Route="HomePage" />
 
 </Shell>
