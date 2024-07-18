@@ -89,6 +89,7 @@
 	  <None Remove="Resources\Images\sosis_ve_pepperoni_stuffed_pizza.png" />
 	  <None Remove="Resources\Images\spaghetti.png" />
 	  <None Remove="Resources\Images\spaghetti_bolognese.png" />
+	  <None Remove="Resources\Images\star.svg" />
 	  <None Remove="Resources\Images\su.png" />
 	  <None Remove="Resources\Images\sucuklu_favori_pizza.png" />
 	  <None Remove="Resources\Images\sucuklu_stromboli.png" />
@@ -117,14 +118,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="7.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>
