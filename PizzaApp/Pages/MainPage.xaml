@@ -9,21 +9,28 @@
   Padding="15,25">
         <Label Grid.Row="0"
                Text="Pizza Pazarı"
+               FontFamily="RobotoRegular"
                FontSize="40"
                HorizontalOptions="Center"
                FontAttributes="Bold"/>
         <Image Grid.Row="1"
                Source="akdeniz_pizza.png"
                VerticalOptions="Center"
+               WidthRequest="500"
                HorizontalOptions="Center"/>
+        
         <VerticalStackLayout Grid.Row="2"
-                             Spacing="15">
-            <Label Text="Dünyanın En Lezzetli Pizzaları Burada..."
-                   FontSize="40"
+                             Spacing="45">
+            <Label Text="Dilimin Hakkını Veren Pizza"
+                   FontSize="36"
+                   FontFamily="RobotoRegular"
                    FontAttributes="Bold"/>
-            <Label Text="Dünyanın En Lezzetli Pizzaları Burada...  Sen de Bu lezzeti kaçırma. Üstelik kampanyayı yakala."
+            
+            <Label Text="Her bir dilimde mutluluk ve lezzet saklı. Enfes pizzalarımızla her anı daha keyifli hale getirin."
                    FontSize="18"
+                   FontFamily="RobotoRegular"
                    LineHeight="1.2"/>
+
             <Border StrokeShape="RoundRectangle 25"
                     StrokeThickness="0"
                     BackgroundColor="#FFD700"
@@ -39,6 +46,7 @@
                                        Spacing="10"
                                        Padding="0,5">
                     <Label Text="Tümünü İncele"
+                           FontFamily="RobotoRegular"
                            VerticalOptions="Center"
                            FontSize="18"/>
                     <Image Source="arrow_right"
@@ -46,6 +54,8 @@
                            HeightRequest="30"/>
                 </HorizontalStackLayout>
             </Border>
+            
+            
         </VerticalStackLayout>
     </Grid>
 
