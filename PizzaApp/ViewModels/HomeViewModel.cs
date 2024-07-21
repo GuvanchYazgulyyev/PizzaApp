@@ -20,5 +20,25 @@ namespace PizzaApp.ViewModels
             Pizzas = new(_pizzaServices.GetPopularPizzas());
         }
         public ObservableCollection<Pizza> Pizzas { get; set; }
+
+        [RelayCommand]
+        private async Task GToAllPizzasPage(bool fromSearch = false)
+        {
+            var parameters = new Dictionary<string, object>()
+            {
+                [nameof(AllProductViewModel.FromSearch)] = fromSearch
+            };
+            await Shell.Current.GoToAsync(nameof(AllProductPage), animate: true, parameters);
+        }
+
+        [RelayCommand]
+        private async Task GoToDetailPage(Pizza pizza)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                [nameof(DetailProductPageViewModel.Pizza)] = pizza
+            };
+            await Shell.Current.GoToAsync(nameof(DetailProductPage), animate: true, parameters);
+        }
     }
 }

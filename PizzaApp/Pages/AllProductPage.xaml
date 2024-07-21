@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:PizzaApp.ViewModels"
+             xmlns:models="clr-namespace:PizzaApp.Models"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             x:Class="PizzaApp.Pages.AllProductPage"
+             Title="Tüm Ürünler ve Meşrubatlar"
+             x:DataType="vm:AllProductViewModel">
+
+    <ContentPage.Triggers>
+        <DataTrigger TargetType="ContentPage"
+                     Binding="{Binding FromSearch}"
+                     Value="True">
+            <Setter Property="Title" Value="Arama Yapın"/>
+        </DataTrigger>
+    </ContentPage.Triggers>
+
+    <Grid RowDefinitions="Auto,*">
+        <!--Arama Kısmı-->
+        <SearchBar Grid.Row="0"
+                   x:Name="searchBar"
+                   Placeholder="Burada Arayın..."
+                   PlaceholderColor="#FFD700"
+                   CancelButtonColor="Red"
+                   TextColor="#FFA500"
+                   ios:SearchBar.SearchBarStyle="Minimal"
+                   SearchCommand="{Binding SearchPizzasCommand}"
+                   SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}"
+                   TextChanged="searchBar_TextChanged"/>
+
+        <ScrollView Grid.Row="1"
+                    Margin="5">
+            <VerticalStackLayout>
+                <CollectionView ItemsSource="{Binding Pizzas}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                           ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Pizza">
+                            <Border StrokeShape="RoundRectangle 10"
+                                    StrokeThickness="0"
+                                    BackgroundColor="PaleGoldenrod"
+                                    Padding="10"
+                                    Margin="5">
+                                <Grid ColumnDefinitions="130,*" ColumnSpacing="10">
+                                    <Image Grid.Column="0"
+                                           Source="{Binding Image}"
+                                           HeightRequest="130"
+                                           WidthRequest="200"/>
+                                    <VerticalStackLayout Grid.Column="1"
+                                                         VerticalOptions="Center"
+                                                         Spacing="5">
+                                        <Label Text="{Binding Name}" FontSize="20" FontFamily="RobotoRegular"/>
+
+                                        <Grid ColumnDefinitions="*,*">
+                                            <Label Grid.Column="0"
+                                                   Text="{Binding Price, StringFormat='{0:N2} ₺'}"
+                                                   FontAttributes="Bold"/>
+                                            <HorizontalStackLayout Grid.Column="1"
+                                                                   HorizontalOptions="End"
+                                                                   Spacing="2"
+                                                                   VerticalOptions="Center">
+                                                <Label Text="4" FontFamily="RobotoRegular"/>
+                                                <Image Source="star" HeightRequest="15" WidthRequest="15">
+                                                    <Image.Behaviors>
+                                                        <toolkit:IconTintColorBehavior TintColor="#FFA500"/>
+                                                    </Image.Behaviors>
+                                                </Image>
+                                            </HorizontalStackLayout>
+                                        </Grid>
+                                        <Border StrokeShape="RoundRectangle 25"
+                                                StrokeThickness="0"
+                                                BackgroundColor="#FFD700"
+                                                HeightRequest="45"
+                                                HorizontalOptions="Center"
+                                                Padding="30,5"
+                                                VerticalOptions="End">
+                                            <HorizontalStackLayout Spacing="2" Padding="2">
+                                                <Label Text="Detaylı Gör" VerticalOptions="Center"/>
+                                                <Image Source="arrow_right"
+                                                       HeightRequest="20"
+                                                       VerticalOptions="Center"/>
+                                            </HorizontalStackLayout>
+
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:AllProductViewModel}}, Path=GoToDetailPageCommand}"
+                                                                      CommandParameter="{Binding .}"/>
+                                            </Border.GestureRecognizers>
+
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+
+                    <!--Ürün Bulunamadıgında Buray Göster!-->
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout HorizontalOptions="Center"
+                                             VerticalOptions="Center">
+                            <BoxView HeightRequest="100"
+                                     Color="Transparent"
+                                     />
+                            <Label Text="Ürün Bulunamadı!"
+                                   FontSize="25"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                                 Binding="{Binding Searching}"
+                                                 
+                                                 Value="True">
+                                        <Setter Property="Text"
+                                                Value="serching..."/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+                    <!--Ürün Bulunamadıgında Buray Göster!-->
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+
+        <ActivityIndicator Grid.RowSpan="2"
+                           IsRunning="{Binding Searching}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Color="#FFA500"/>
+    </Grid>
+</ContentPage>
