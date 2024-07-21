@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:PizzaApp.ViewModels"
+             xmlns:models="clr-namespace:PizzaApp.Models"
+             x:Class="PizzaApp.Pages.DetailProductPage"
+             Title=""
+             Shell.NavBarIsVisible="False"
+             x:DataType="vm:DetailProductPageViewModel">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="White"
+                                   StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+
+    <Grid>
+        <ScrollView Padding="15">
+            <VerticalStackLayout Spacing="15">
+                <Image Source="{Binding Pizza.Image}"
+                       HeightRequest="200"
+                       WidthRequest="400"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                <Label Text="{Binding Pizza.Name}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+                <Grid ColumnDefinitions="*,*">
+                    <Label Grid.Column="0"
+                 Text="{Binding Pizza.Price, StringFormat='{0:N2} ₺'}"
+                 FontAttributes="Bold"
+                           FontSize="18"/>
+                    <HorizontalStackLayout Grid.Column="1"
+                                 HorizontalOptions="End"
+                                 Spacing="2"
+                                 VerticalOptions="Center">
+                        <Label Text="4" FontFamily="RobotoRegular"/>
+                        <Image Source="star" HeightRequest="15" WidthRequest="15">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="#FFA500"/>
+                            </Image.Behaviors>
+                        </Image>
+                    </HorizontalStackLayout>
+                </Grid>
+
+                <Label Text="Açıklama"
+                       FontSize="15"
+                       FontAttributes="Bold"
+                       Margin="0,10"/>
+
+                <Label FontSize="14"
+                       LineHeight="1.3"
+                       Text="Tests Tstsabdlkaldk aldjiajdljfjnernlkmsdf hwıfbdasddjjhfbwfoufıojfowehıf ıfjoıwejffıu  jfowfweyıwef efkj"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+        <Border StrokeThickness="0"
+                x:Name="bottomBox"
+                BackgroundColor="#FFA500"
+                Margin="-1"
+                VerticalOptions="End"
+                HeightRequest="150"
+                Padding="15"
+                StrokeShape="RoundRectangle 30, 30, 0, 0">
+            
+        </Border>
+    </Grid>
+    
+</ContentPage>

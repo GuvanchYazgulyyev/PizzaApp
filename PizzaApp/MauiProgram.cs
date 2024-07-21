@@ -33,6 +33,8 @@ namespace PizzaApp
         {
             services.AddSingleton<PizzaServices>();
             services.AddSingletonWithShellRoute<HomePage, HomeViewModel>(nameof(HomePage));
+            services.AddTransientWithShellRoute<AllProductPage, AllProductViewModel>(nameof(AllProductPage));
+            services.AddTransientWithShellRoute<DetailProductPage, DetailProductPageViewModel>(nameof(DetailProductPage));
             return services;
         }
     }

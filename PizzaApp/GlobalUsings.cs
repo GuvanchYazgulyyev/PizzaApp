@@ -5,3 +5,5 @@ global using PizzaApp.Pages;
 global using PizzaApp.Services;
 global using System;
 global using System.Collections.ObjectModel;
+global using CommunityToolkit.Mvvm.Input;
+
