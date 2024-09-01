@@ -60,8 +60,8 @@
                        TextColor="#FFA500"
                        Padding="10,14"/>
                 <Border.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding GToAllPizzasPageCommand}"
-                                          CommandParameter="{x:Boolean true}"/>
+                    <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}"
+                                          /> <!--CommandParameter="{x:Boolean true}"-->
                 </Border.GestureRecognizers>
             </Border>
 
@@ -85,8 +85,8 @@
                        
                  TextDecorations="Underline">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GToAllPizzasPageCommand}"
-                        CommandParameter="{x:Boolean false}"/>
+                        <TapGestureRecognizer Command="{Binding GoToAllPizzasPageCommand}"
+                        /> <!--CommandParameter="{x:Boolean false}"-->
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>
