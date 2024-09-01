@@ -13,7 +13,18 @@
         <toolkit:StatusBarBehavior StatusBarColor="White"
                                    StatusBarStyle="DarkContent"/>
     </ContentPage.Behaviors>
-
+    <!--Toplu Css Kodlama Kısmı-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="QuantityBtn" TargetType="ImageButton">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!--Toplu Css Kodlama Kısmı-->
     <Grid>
         <ScrollView Padding="15">
             <VerticalStackLayout Spacing="15">
@@ -51,7 +62,11 @@
 
                 <Label FontSize="14"
                        LineHeight="1.3"
-                       Text="Tests Tstsabdlkaldk aldjiajdljfjnernlkmsdf hwıfbdasddjjhfbwfoufıojfowehıf ıfjoıwejffıu  jfowfweyıwef efkj"/>
+                       Text="Öncelikle hamur için mayayı bir bardaklık suya koyup karıştırın bekletin.
+Tasa unu tuzu şekeri koyup karıştırın daha sonra bir çay bardağı yağı koyup az yoğurun ve sonra suyu azar azar koyarak yoğurun yumuşak kıvam alana kadar yoğurun ve beklemeye alın 20 dakika.
+Eti tavaya alın suyunu bıraksın fakat kurutmayın.
+Daha sonra tereyağı ve zeytin yağını katın sarımsak ve domatesi koyun.
+İsteğe göre biber ve soğan da koyabilirsiniz , kavurun domates az diri kalsın çok pişirmeyin."/>
 
             </VerticalStackLayout>
         </ScrollView>
@@ -62,9 +77,94 @@
                 VerticalOptions="End"
                 HeightRequest="150"
                 Padding="15"
-                StrokeShape="RoundRectangle 30, 30, 0, 0">
-            
+                StrokeShape="{OnPlatform Android='RoundRectangle 30, 30, 0, 0',Default='RoundRectangle 0'}">
+            <Border.Shadow>
+                <Shadow Brush="Gold"
+                        Radius="100"/>
+            </Border.Shadow>
+
+            <!--Alttaki Fiyatı-->
+            <Grid RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="*,*">
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Text="{Binding Pizza.Amount, StringFormat='{0:N2} ₺'}"
+                       FontSize="20"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Grid Grid.Row="0"
+                      Grid.Column="1"
+                      ColumnDefinitions="50,40,50"
+                      HorizontalOptions="End"
+                      VerticalOptions="Center">
+                    <!--rtı Eksi Butonlar Kısmı-->
+                    <!--Azalt-->
+                    <ImageButton Grid.Column="0"
+                                 Source="incriment"
+                                Style="{StaticResource QuantityBtn}"
+                                 Command="{Binding RemoveFromCartCommand}">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <!--Azalt-->
+                    
+                    <!--Miktarı-->
+
+                    <Label Grid.Column="1"
+                           Text="{Binding Pizza.CartQuantity}"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="25"/>
+
+                    <!--Miktarı-->
+                    
+                    <!--Arttır-->
+                    <ImageButton Grid.Column="2"
+                                 Source="decrement"
+                                 Style="{StaticResource QuantityBtn}"
+                                 Command="{Binding AddToCartCommand}">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="Gold"/>
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <!--Arttır-->
+                    <!--rtı Eksi Butonlar Kısmı-->
+                </Grid>
+                
+                <!--Kart Butonu-->
+                <Button Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Text="Sepete Git"
+                        BackgroundColor="#FFD700"
+                        HorizontalOptions="Center"
+                        CornerRadius="22"
+                        Padding="80,10"
+                        VerticalOptions="End"
+                        Margin="0,20"
+                        Command="{Binding ViewCartCommand}"
+                        />
+                <!--Kart Butonu-->
+            </Grid>
+            <!--Alttaki Fiyatı-->
+
         </Border>
+
+        <!--Buton tetiklendiginde İşlem Yap-->
+        <ImageButton Source="{OnPlatform Android='arrow_right',Default='back'}"
+HeightRequest="60"
+WidthRequest="30"
+VerticalOptions="Start"
+HorizontalOptions="Start"
+Margin="15,10,40,0" 
+RotationY="{OnPlatform Android=180, Default=0}"
+Clicked="ImageButton_Clicked">
+            <ImageButton.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="#FFA500"/>
+            </ImageButton.Behaviors>
+        </ImageButton>
     </Grid>
-    
+
 </ContentPage>
