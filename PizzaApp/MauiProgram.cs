@@ -32,9 +32,12 @@ namespace PizzaApp
         private static IServiceCollection AddPizzaServices(IServiceCollection services)
         {
             services.AddSingleton<PizzaServices>();
-            services.AddSingletonWithShellRoute<HomePage, HomeViewModel>(nameof(HomePage));
+            services.AddSingleton<HomePage>().AddSingleton<HomeViewModel>();
             services.AddTransientWithShellRoute<AllProductPage, AllProductViewModel>(nameof(AllProductPage));
             services.AddTransientWithShellRoute<DetailProductPage, DetailProductPageViewModel>(nameof(DetailProductPage));
+            //services.AddTransientWithShellRoute<CartPage, CartVewModel>(nameof(CartPage));
+            services.AddSingleton<CartVewModel>();
+            services.AddTransient<CartPage>();
             return services;
         }
     }

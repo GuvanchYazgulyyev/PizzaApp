@@ -62,11 +62,7 @@
 
                 <Label FontSize="14"
                        LineHeight="1.3"
-                       Text="Öncelikle hamur için mayayı bir bardaklık suya koyup karıştırın bekletin.
-Tasa unu tuzu şekeri koyup karıştırın daha sonra bir çay bardağı yağı koyup az yoğurun ve sonra suyu azar azar koyarak yoğurun yumuşak kıvam alana kadar yoğurun ve beklemeye alın 20 dakika.
-Eti tavaya alın suyunu bıraksın fakat kurutmayın.
-Daha sonra tereyağı ve zeytin yağını katın sarımsak ve domatesi koyun.
-İsteğe göre biber ve soğan da koyabilirsiniz , kavurun domates az diri kalsın çok pişirmeyin."/>
+                       Text="{Binding Pizza.Description}"/>
 
             </VerticalStackLayout>
         </ScrollView>
@@ -138,6 +134,9 @@ Daha sonra tereyağı ve zeytin yağını katın sarımsak ve domatesi koyun.
                 <Button Grid.Row="1"
                         Grid.ColumnSpan="2"
                         Text="Sepete Git"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="16"
                         BackgroundColor="#FFD700"
                         HorizontalOptions="Center"
                         CornerRadius="22"

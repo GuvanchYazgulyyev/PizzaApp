@@ -45,13 +45,16 @@
                                        VerticalOptions="Center"
                                        Spacing="10"
                                        Padding="0,5">
+                    
                     <Label Text="Tümünü İncele"
                            FontFamily="RobotoRegular"
                            VerticalOptions="Center"
                            FontSize="18"/>
+                    
                     <Image Source="arrow_right"
                            VerticalOptions="Center"
                            HeightRequest="30"/>
+                    
                 </HorizontalStackLayout>
             </Border>
             

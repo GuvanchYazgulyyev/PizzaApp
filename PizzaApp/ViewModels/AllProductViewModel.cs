@@ -8,7 +8,7 @@
         public AllProductViewModel(PizzaServices services)
         {
             _services = services;
-            Pizzas = new ObservableCollection<Pizza>(_services.GetPopularPizzas());
+            Pizzas = new ObservableCollection<Pizza>(_services.GetAllPizzas());
         }
 
         [ObservableProperty]

@@ -9,6 +9,7 @@ namespace PizzaApp.Models
         private string _image;
         private double _price;
         private int _cartQuantity;
+        private string _description;
 
         public string Name
         {
@@ -26,6 +27,12 @@ namespace PizzaApp.Models
         {
             get => _price;
             set => SetProperty(ref _price, value);
+        }
+
+        public string Description
+        {
+            get => _description;
+            set => SetProperty(ref _description, value);
         }
 
         public int CartQuantity

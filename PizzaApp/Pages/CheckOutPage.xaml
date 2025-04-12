@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="PizzaApp.Pages.CheckOutPage"
+             Title="Sipariş Onay">
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Spacing="35">
+        <Image x:Name="img"
+               Source="star"
+               HeightRequest="150"
+               WidthRequest="150"
+             >
+            <Image.Behaviors>
+                <toolkit:IconTintColorBehavior TintColor="Green"/>
+            </Image.Behaviors>
+        </Image>
+        <Label x:Name="msg" Text="Sipariş Oluşturuldu! Yine Bekleriz :)"
+              FontSize="23"
+              TextColor="Green"
+             />
+        <Button x:Name="homeBtn" Text="Ana Sayfaya Dön"
+                BackgroundColor="#FFA500"
+                CornerRadius="25"
+                HorizontalOptions="Center"
+                Padding="50, 10"
+              
+                Clicked="homeBtn_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
